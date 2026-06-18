@@ -8,42 +8,52 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
+  <div class="app">
+    <aside class="sidebar">
       <h1 id="title">Трекер термінів придатності</h1>
-      <div class="controls">
+      <div class="meta-controls">
         <label for="langSelect" id="langLabel">Мова:</label>
         <select id="langSelect">
           <option value="uk">Українська</option>
           <option value="de">Deutsch</option>
         </select>
       </div>
-    </header>
 
-    <section class="form">
-      <input type="text" id="productName" placeholder="Назва товару" aria-label="Назва товару" />
-      <input type="date" id="expiryDate" aria-label="Дата закінчення" />
-      <select id="reminderDays" title="Reminder days">
-        <option value="0">Нагадати в день</option>
-        <option value="1">1 день до</option>
-        <option value="3">3 дні до</option>
-        <option value="7">7 днів до</option>
-      </select>
-      <button id="addBtn">Додати</button>
-      <button id="checkBtn">Перевірити зараз</button>
-      <button id="exportBtn">Експорт JSON</button>
-      <button id="importBtn">Імпорт JSON</button>
-      <input type="file" id="importFile" accept=".json" style="display:none" />
-    </section>
+      <div class="inputs">
+        <input type="text" id="productName" placeholder="Назва товару" aria-label="Назва товару" />
+        <input type="date" id="expiryDate" aria-label="Дата закінчення" />
+        <select id="reminderDays" title="Reminder days">
+          <option value="0">Нагадати в день</option>
+          <option value="1">1 день до</option>
+          <option value="3">3 дні до</option>
+          <option value="7">7 днів до</option>
+        </select>
+        <div class="actions-row">
+          <button id="addBtn" class="primary">Додати</button>
+          <button id="checkBtn" class="secondary">Перевірити зараз</button>
+        </div>
+      </div>
 
-    <section>
-      <h2 id="listTitle">Список товарів</h2>
-      <ul id="productList" class="product-list"></ul>
-    </section>
+      <div class="help small">
+        <p id="footerText">Працює локально у вашому браузері. Дозвольте сповіщення, щоб отримувати desktop‑повідомлення.</p>
+      </div>
+    </aside>
 
-    <footer>
-      <small id="footerText">Працює локально у вашому браузері. Дозвольте сповіщення, щоб отримувати desktop-повідомлення.</small>
-    </footer>
+    <main class="main">
+      <div class="topbar">
+        <input id="search" placeholder="Пошук товарів" class="search" />
+        <div class="filters">
+          <button data-filter="all" class="filter active">Всі</button>
+          <button data-filter="soon" class="filter">Скоро</button>
+          <button data-filter="expired" class="filter">Прострочені</button>
+        </div>
+      </div>
+
+      <section>
+        <h2 id="listTitle">Список товарів</h2>
+        <ul id="productList" class="product-list"></ul>
+      </section>
+    </main>
   </div>
 
   <script src="app.js"></script>
